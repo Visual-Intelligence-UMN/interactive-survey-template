@@ -13,10 +13,18 @@ import {
 import AvatarGroup from '@material-ui/lab/AvatarGroup';
 import { Paper as TPaper, getAvatar } from "../index";
 import { useStyles } from "./style";
+import { getAllTags } from '../index';
 
 interface Props {
   papers: TPaper[];
 }
+
+const AvatarComponent = ({ tag }) => {
+  const avatarSrc = `assets/avatars/${tag.replace(' ', '_')}_w.png`;
+  return (
+    <Avatar alt={getAvatar(tag)} src={avatarSrc} style={{ color: "white" }}></Avatar>
+  );
+};
 
 export function Papers(props: Props) {
   const { papers } = props;
@@ -27,6 +35,10 @@ export function Papers(props: Props) {
       "_blank")
   }
 
+  console.log("papers: ", papers)
+  const allTags = getAllTags();
+  console.log("allTags: ", allTags)
+  
   return (
     <Grid container className={classes.root} spacing={2}>
       <Grid item xs={12}>
@@ -55,7 +67,8 @@ export function Papers(props: Props) {
                   {/* <Typography variant="body2" component="p">
                     Author1, Author2, Author3, and Author4
                   </Typography> */}
-                  <div className={classes.grow}></div>
+
+                  {/* <div className={classes.grow}></div>
                   <div className={classes.tags}>
                   <AvatarGroup className={classes.avatarGroup}>
                     {paper.VIS.map((v) => (
@@ -72,7 +85,23 @@ export function Papers(props: Props) {
                       </Avatar>
                     ))}
                   </AvatarGroup>
+                  </div> */}
+                  <div className={classes.grow}></div>
+                  <div className={classes.tags}>
+                    {Object.entries(allTags).map(([key, value]) => (
+                      <AvatarGroup key={key} className={classes.avatarGroup}>
+                        {paper[key]?.map((v) => (
+                          <Avatar key={v} className={classes.VISTag}>
+                            <AvatarComponent tag={v} />
+                            {/* <b>{getAvatar(v)}</b> */}
+                          </Avatar>
+                        ))}
+                      </AvatarGroup>
+                    ))}
+                  
                   </div>
+
+
                 </CardContent>
                 {/* <CardActions>
                   <Button size="small">Learn More</Button>

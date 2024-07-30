@@ -21,14 +21,14 @@ import {
 import { useStyles } from "./style";
 
 interface Props {
-  menuId: string;
+  title: string;
   handleDrawerToggle: () => void;
   onProfileMenuOpen: (e: React.MouseEvent<HTMLElement>) => void;
 }
 
 export function TopBar(props: Props) {
   const classes = useStyles();
-  const { menuId, onProfileMenuOpen, handleDrawerToggle } = props;
+  const {title, onProfileMenuOpen, handleDrawerToggle } = props;
 
   return (
     <AppBar position="fixed" className={classes.appBar}>
@@ -43,7 +43,7 @@ export function TopBar(props: Props) {
           <MenuIcon />
         </IconButton>
         <Typography variant="h6" noWrap className={classes.title}>
-          ML4VIS
+          {title}
         </Typography>
 
         <div className={classes.sectionDesktop}>

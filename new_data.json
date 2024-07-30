@@ -1,0 +1,27 @@
+[
+  {
+    "paper name": "Selecting good views of high-dimensional data using class consistency",
+    "venue": "EuroVis",
+    "year": 2009,
+    "VIS_NEW": ["Data Processing4VIS"],
+    "ML": ["Clustering"],
+    "FRUIT": ["Apple", "Banana"]
+  },
+  {
+    "paper name": "Behavior-Driven Visualization Recommendation",
+    "venue": "IUI",
+    "year": 2009,
+    "VIS_NEW": ["Data-VIS Mapping"],
+    "ML": ["Classification"],
+    "ANIMAL": ["Dog"]
+  },
+  {
+    "paper name": "Behavior-Driven Visualization Recommendation",
+    "venue": "IUI",
+    "year": 2009,
+    "VIS_NEW": ["Data-VIS Mapping"],
+    "ML": ["Reinforcement"],
+    "FRUIT": ["Apple", "Orange", "Banana"],
+    "ANIMAL": ["Lion", "Tiger", "Cat"]
+  }
+]

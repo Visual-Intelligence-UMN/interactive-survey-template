@@ -17,7 +17,7 @@ module.exports = {
         hot: true,
         host: '0.0.0.0',
         // disableHostCheck: true,
-        port: 21001
+        port: 21002
     },
     entry: {
         index: path.resolve(__dirname, './src/index.tsx'),
