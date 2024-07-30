@@ -18,7 +18,7 @@ export const useStyles = makeStyles((theme: Theme) =>
         },
         card: {
             width: 300,
-            height: 200
+            height: 400
         },
         cardContent: {
             display: 'flex',
@@ -60,6 +60,8 @@ export const useStyles = makeStyles((theme: Theme) =>
             backgroundColor: theme.palette.primary.main,
             width: 32,
             height: 32,
+            fontSize: "14px",
+            marginLeft: "-4px"
         },
         MLTag: {
             backgroundColor: theme.palette.secondary.main,

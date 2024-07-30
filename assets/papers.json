@@ -1,25 +1,24 @@
 {
   "title": "Testing Functionality",
-  "colors": [],
-  "github": "",
-  "preprint": "",
+  "colors": ["#aaa", "orange", "blue", "pink"],
+  "github": "https://github.com/ML4VIS/ML4VIS.github.io",
+  "preprint": "https://arxiv.org/abs/2012.00467",
   "papers":[
   {
     "name": "Selecting good views of high-dimensional data using class consistency",
     "venue": "EuroVis",
     "year": 2009,
+    "imagePath": "assets/avatars/Data_Processing4VIS.png",
     "VIS_NEW": ["Data Processing4VIS"],
     "ML": ["Clustering"],
-    "FRUIT": ["Apple", "Banana"],
-    "url": "",
-    "aditional": {
-      "authors": ""
-    }
+    "FRUIT": ["Apple", "Banana"]
   },
   {
     "name": "Revision: Automated classification, analysis and redesign of chart images",
     "venue": "UIST",
     "year": 2011,
+    "imagePath": "assets/avatars/Style_Imitation.png",
+    "url": "http://vis.stanford.edu/papers/revision",
     "VIS_NEW": ["Data-VIS Mapping"],
     "ML": ["Classification"],
     "ANIMAL": ["Dog"]
@@ -28,6 +27,7 @@
     "name": "Behavior-Driven Visualization Recommendation",
     "venue": "IUI",
     "year": 2009,
+    "imagePath": "assets/avatars/VIS_Reading.png",
     "VIS_NEW": ["Data-VIS Mapping"],
     "ML": ["Reinforcement"],
     "FRUIT": ["Apple", "Orange", "Banana"],

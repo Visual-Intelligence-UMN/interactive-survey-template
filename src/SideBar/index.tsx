@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-const COLORS =['purple', 'orange', 'blue', 'green']
+const COLORS =['#9d7af0', '#f2eaa0', '#6e40db', '#edde51', "#450ad1", "#cfbb02"]
 import {
   Drawer,
   Divider,
@@ -23,6 +23,7 @@ import { useStyles } from "./style";
 // import { useTheme } from '@material-ui/core/styles';
 
 import { ChartModal, TPaperMatrix } from '../ChartModal'
+import { List } from "echarts";
 
 // const VISTagDetails = {
 //   "Data Processing4VIS": "raw data is transformed into a format that better suits the following visualization processes.",
@@ -39,6 +40,7 @@ interface Props {
   version: string;
   // VISTags: Record<string, boolean>;
   // MLTags: Record<string, boolean>;
+  colors: string[];
   tags: Record<string, Record<string, boolean>>;
   tagFilters: Record<string, Record<string, boolean>>;
   paperYear: Record<string, number>;
@@ -69,9 +71,10 @@ interface Props {
 
 export function SideBar(props: Props) {
   // const { paperNumber, VISTags, MLTags, onClickFilter, onSetSearchKey, onSetVersion, paperArea, paperYear, paperMatrix, mobileOpen, handleDrawerToggle } = props;
-  const { paperNumber, tags, tagFilters, onClickFilter, onSetSearchKey, onSetVersion, paperArea, paperYear, paperMatrix, mobileOpen, handleDrawerToggle } = props;
+  const { paperNumber, colors, tags, tagFilters, onClickFilter, onSetSearchKey, onSetVersion, paperArea, paperYear, paperMatrix, mobileOpen, handleDrawerToggle } = props;
   // const tagsCollection = props.tags;
   const [anchorEl, setAnchorEl] = React.useState(null);
+  console.log("colors: ", colors)
 
   const classes = useStyles();
   const handleClose = () => {
@@ -98,7 +101,13 @@ export function SideBar(props: Props) {
   // };
 
   const getBgColor = (tag: string)=> {
+    console.log("check tag here: ", tag)
+    console.log('props.tags:', props.tags);
     const index = Object.keys(props.tags).indexOf(tag)
+    console.log("index here is: ", index)
+    if (colors){
+      return colors[index]
+    }
     return COLORS[index]
   }
 
@@ -123,7 +132,7 @@ export function SideBar(props: Props) {
   // };
 
 
-  const AvatarComponent = ({ tag }) => {
+  const AvatarComponent = ({ tag, bgcolor }) => {
     // const [imgError, setImgError] = React.useState(false);
     const avatarSrc = `assets/avatars/${tag.replace(' ', '_')}_w.png`;
   
@@ -139,7 +148,7 @@ export function SideBar(props: Props) {
   
     
     return (
-      <Avatar alt={getAvatar(tag)} src={avatarSrc} style={{ color: "white" }}></Avatar>
+      <Avatar alt={getAvatar(tag)} src={avatarSrc} style={{ width: 24, height: 24, marginLeft: 6, backgroundColor: bgcolor, color: "white" }}></Avatar>
     );
   };
   
@@ -165,11 +174,15 @@ export function SideBar(props: Props) {
               //   <Avatar src={`assets/avatars/${tag.replace(' ', '_')}_w.png`} />
               // }
               // avatar={UserAvatar({ tag })}
-              avatar={<AvatarComponent tag={tag} />}
+              avatar={<AvatarComponent tag={tag} bgcolor={getBgColor(typeName)}/> }
               label={tag}
               clickable
               variant={checked ? "default" : "outlined"}
-              style={{ backgroundColor: getBgColor(typeName), color: 'white' }}
+              style={{ 
+                backgroundColor: checked ? getBgColor(typeName) : 'transparent', 
+                color: checked ? 'white' : getBgColor(typeName), 
+                // border: checked ? 'none' : '1px solid ${getBgColor(typeName)}'
+              }}
               // color={getBgColor(typename)}
               // color="primary"
               // color={getColorForType(typeName)}
@@ -214,11 +227,11 @@ export function SideBar(props: Props) {
     </div>
 
     <Divider />
-    {/* < ChartModal
+    < ChartModal
       paperYear={paperYear}
       paperArea={paperArea}
       paperMatrix={paperMatrix}
-    /> */}
+    />
     <Divider /> 
     {Object.keys(tagFilters).map((typeName) => renderFilters(typeName))}
     {/* {Object.keys(tagFilters).forEach((typeName) => renderFilters(typeName))} */}

@@ -22,13 +22,16 @@ import { useStyles } from "./style";
 
 interface Props {
   title: string;
+  preprint: string;
+  github: string;
   handleDrawerToggle: () => void;
   onProfileMenuOpen: (e: React.MouseEvent<HTMLElement>) => void;
 }
 
 export function TopBar(props: Props) {
   const classes = useStyles();
-  const {title, onProfileMenuOpen, handleDrawerToggle } = props;
+  const {title, preprint, github, onProfileMenuOpen, handleDrawerToggle } = props;
+  console.log("preprint here: ", preprint)
 
   return (
     <AppBar position="fixed" className={classes.appBar}>
@@ -51,8 +54,9 @@ export function TopBar(props: Props) {
             edge="end"
             aria-label="link to arxiv paper"
             aria-haspopup="true"
-            onClick={()=>window.open("https://arxiv.org/abs/2012.00467")}
+            onClick={()=>window.open(preprint)}
             color="inherit"
+            disabled={!preprint}
           >
             <Description /> <span style={{fontSize: '12px'}} className={classes.iconName}>{' '}Preprint </span>
           </IconButton>
@@ -60,12 +64,13 @@ export function TopBar(props: Props) {
             edge="end"
             aria-label="link to github homepage"
             aria-haspopup="true"
-            onClick={()=>window.open("https://github.com/ML4VIS/ML4VIS.github.io")}
+            onClick={()=>window.open(github)}
             color="inherit"
+            disabled={!github}
           >
             <GitHub /> <span style={{fontSize: '12px'}} className={classes.iconName}>{' '}Github </span>
           </IconButton>
-          <IconButton
+          {/* <IconButton
             edge="end"
             aria-label="suggest new ML4VIS papers for this survey"
             aria-haspopup="true"
@@ -73,7 +78,7 @@ export function TopBar(props: Props) {
             color="inherit"
           >
             <CloudUpload />  <span style={{fontSize: '12px'}} className={classes.iconName}> {' '}Contribute </span>
-          </IconButton>
+          </IconButton> */}
         </div>
       </Toolbar>
     </AppBar>

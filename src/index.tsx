@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, createContext } from "react";
 import ReactDOM from "react-dom";
 
 import {
@@ -22,6 +22,8 @@ export const getAllTags = () => allTags;
 export const setAllTags = (newTags) => {
   allTags = newTags;
 };
+
+// export const ContextValues = createContext();
 
 
 export interface Paper {
@@ -54,23 +56,34 @@ export const getAvatar = (s: string) => {
   return `${pieces[0][0].toUpperCase()}`;
 };
 
-
 export default function App() {
   const classes = useStyles();
   // const defaultVersion = "latest"
-  const defaultVersion = "tags"
-  // const defaultVersion = "papers"
+  // const defaultVersion = "tags"
+  const defaultVersion = "papers"
   // const defaultVersion = "CHI2024"
 
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
   const [papers, setPapers] = useState<Paper[]>([]);
   const [title, setTitle] = useState<string>('');
+  const [colors, setColors] = useState([]);
+  const [preprint, setPreprint] = useState<string>('');
+  const [github, setGithub] = useState<string>('');
   // const [VISTags, setVISTags] = useState({});
   // const [MLTags, setMLTags] = useState({});
   const [tags, setTags] = useState({});
   const [tagFilters, setTagFilters] = useState({});
   const [searchKey, setSearchKey] = useState('');
   const [version, setVersion] = useState(defaultVersion);
+
+  // const value = {
+  //   colors,
+  //   setColors,
+  //   preprint,
+  //   setPreprint,
+  //   github,
+  //   setGithub
+  // };
 
   const [mobileOpen, setMobileOpen] = React.useState(false);
   const handleDrawerToggle = () => {
@@ -222,12 +235,19 @@ export default function App() {
   const fetchData = async (version: string) => {
     const response = await fetch(`/assets/${version}.json`);
     const res = await response.json();
-    const {papers, title} = res;
+    console.log("res: ", res)
+    const {papers, title, colors, preprint, github} = res;
     console.log("Complete response:", res);
     console.log("Fetched papers:", papers); 
+    console.log("colors: ", colors)
+    console.log("preprint: ", preprint)
     
     setTitle(title);
     setPapers(papers);
+    setColors(colors);
+    setPreprint(preprint);
+    setGithub(github);
+
     // if (papers) {
     //   console.log("papers exist")
     //   setPapers(papers);
@@ -248,7 +268,7 @@ export default function App() {
     papers.forEach(paper => {
       Object.keys(paper).forEach(key => {
         // console.log("key: ", key)
-        if (!['name', 'venue', 'year', 'url'].includes(key)) {
+        if (!['name', 'venue', 'year', 'url', 'imagePath'].includes(key)) {
           // console.log("iniitialTags[key]: ", iniitialTags[key])
           if (!initialTags[key]) {
             // console.log("iniitialTags[key]: ", iniitialTags[key])
@@ -279,30 +299,32 @@ export default function App() {
     //   console.log("initialTagFilters.key: ", initialTagFilters[key])
     // });
 
-    // const initialPaperYear = papers.reduce((o, d) => {
-    //   if (! (d.year in o)){
-    //     o[d.year] = 1
-    //   } else {
-    //     o[d.year] +=1
-    //   }
-    //   return o
-    // }, {})
-    // console.log("initialPaperYear", initialPaperYear)
+    const initialPaperYear = papers.reduce((o, d) => {
+      if (! (d.year in o)){
+        o[d.year] = 1
+      } else {
+        o[d.year] +=1
+      }
+      return o
+    }, {})
+    console.log("initialPaperYear", initialPaperYear)
 
-    // const initialPaperArea = papers.reduce((o, d) => {
-    //   if (! (d.venue in o)){
-    //     o[d.venue] = 1
-    //   } else {
-    //     o[d.venue] +=1
-    //   }
-    //   return o
-    // }, {})
+    const initialPaperArea = papers.reduce((o, d) => {
+      if (! (d.venue in o)){
+        o[d.venue] = 1
+      } else {
+        o[d.venue] +=1
+      }
+      return o
+    }, {})
 
     //TODO:  For matrix part, idea is create a mrtrix to represent the interactions between any two tags?
 
     // setVISTags(initialTagFilters["VIS"]);
     // setMLTags(initialTagFilters["ML"]);
 
+    setPaperAreas(initialPaperArea)
+    setPaperYears(initialPaperYear)
     setTags(initialTags);
     setAllTags(initialTags);
     setTagFilters(initialTagFilters);
@@ -315,6 +337,15 @@ export default function App() {
   useEffect(() => {
     fetchData(defaultVersion);
   }, [version]);
+
+  const value = {
+    colors,
+    setColors,
+    preprint,
+    setPreprint,
+    github,
+    setGithub
+  };
 
   const onProfileMenuOpen = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorEl(event.currentTarget);
@@ -361,65 +392,7 @@ export default function App() {
     
   // };
 
-  // const onClickFilter = (tag: string, ttype: string) => {
-  //   Object.keys(tagFilters).forEach(type =>
-  //     {
-  //       // console.log("tagFilters: ", tagFilters)
-  //       // console.log("tag: ", tag)
-  //       // console.log("tagFilters[type]: ", tagFilters[type])
-  //       // console.log("tagFilters[type][tag]: ", tagFilters[type][tag])
-  //       if (tag in tagFilters[type] || tag == 'all') {
-  //         console.log("tag: ", tag)
-  //         if (tag !== 'all') {
 
-  //           // const newTagFilters = {
-  //           //   ...tagFilters,
-  //           //   [tag]: !tagFilters[type][tag],
-  //           // }
-  //           const newTagFilters = {
-  //             ...tagFilters,
-  //             [type]: {
-  //               ...tagFilters[type],
-  //               [tag]: !tagFilters[type][tag]
-  //             }
-  //           };
-
-  //           console.log("newTagFilters: ", newTagFilters)
-  //           setTagFilters(newTagFilters);
-  //         } 
-  //         else {
-  //           const allEnabled  = Object.values(tagFilters[type]).every(d => d)
-  //           // console.log("allEnabled : ", allEnabled )
-
-  //           // const newTagFilters = Object.keys(tagFilters[type]).reduce((o, d) => { 
-  //           //   console.log("d: ", d)
-  //           //   console.log("o: ", o)
-  //           //   if (!(d in o)) {
-  //           //     o[d] = !allEnabled
-  //           //   }
-  //           //   return o
-  //           // }, {})
-  //           const newTagFilters = {
-  //             ...tagFilters,
-  //             [type]: Object.keys(tagFilters[type]).reduce((acc, key) => {
-  //               acc[key] = !allEnabled ;
-  //               return acc;
-  //             }, {})
-  //           };
-  //           console.log("newTagFilters: ", newTagFilters)
-  //           setTagFilters(newTagFilters);
-  //         }
-  //       }
-  //     }
-  //   )
-  //   // setTagFilters({
-  //   //   ...tagFilters,
-  //   //   [type]: {
-  //   //     ...tagFilters[type],
-  //   //     [tag]: !tagFilters[type][tag]
-  //   //   }
-  //   // });
-  // };
   const onClickFilter = (tag, typeName) => {
     if (tag === "all") {
       const allSelected = Object.values(tagFilters[typeName]).every(d => d);
@@ -510,12 +483,13 @@ export default function App() {
     <ThemeProvider theme={theme}>
       <div className={classes.root}>
         <CssBaseline />
-        <TopBar title={title} onProfileMenuOpen={onProfileMenuOpen} handleDrawerToggle={handleDrawerToggle}/>
+        <TopBar title={title} preprint={preprint} github={github} onProfileMenuOpen={onProfileMenuOpen} handleDrawerToggle={handleDrawerToggle}/>
         {tagFilters && Object.keys(tagFilters).length > 0 && (
           <SideBar
-            paperNumber={papersAfterFilter.length}
+            paperNumber={papersAfterFilter.length}           
             tags={tags}
             tagFilters={tagFilters}
+            colors={colors}
             version={version}
             onClickFilter={onClickFilter}
             onSetSearchKey={onSetSearchKey}
@@ -527,7 +501,7 @@ export default function App() {
             handleDrawerToggle={handleDrawerToggle}
           />
         )}
-        <Papers papers={papersAfterFilter} />
+        <Papers papers={papersAfterFilter} colors={colors} tags={tags}/>
       </div>
     </ThemeProvider>
   );
