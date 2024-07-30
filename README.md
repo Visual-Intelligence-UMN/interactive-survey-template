@@ -31,7 +31,5 @@ please [create an issue using the **Suggest new ML4VIS paper** template](https:/
 
 > **Imposter syndrome disclaimer:** We want your help! There may be a little voice inside your head that is telling you that you're not ready, that you aren't skilled enough to contribute. We assure you that the little voice in your head is wrong. Most importantly, there are many valuable ways to contribute besides writing code.
 >
-> This disclaimer was adapted from the [Pooch](https://github.com/fatiando/pooch) project. -->
+> This disclaimer was adapted from the [Pooch](https://github.com/fatiando/pooch) project.
 
-
-TODO:
