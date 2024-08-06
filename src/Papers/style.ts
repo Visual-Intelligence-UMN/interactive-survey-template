@@ -56,22 +56,8 @@ export const useStyles = makeStyles((theme: Theme) =>
                 fontSize: 14,
             },
         },
-        VISTag: {
-            backgroundColor: theme.palette.primary.main,
-            width: 32,
-            height: 32,
-            fontSize: "14px",
-            marginLeft: "-4px"
-        },
-        MLTag: {
-            backgroundColor: theme.palette.secondary.main,
-            width: 32,
-            height: 32,
-            fontSize: "14px",
-            marginLeft: "-4px"
-        },
         pos: {
-            marginBottom: 12,
+            marginBottom: -5,
         },
         avatarGroup: {
             // margin: "0px 6px"

@@ -3,12 +3,18 @@
   "colors": ["#aaa", "orange", "blue", "pink"],
   "github": "https://github.com/ML4VIS/ML4VIS.github.io",
   "preprint": "https://arxiv.org/abs/2012.00467",
+  "topTheme": "#b31b1b",
   "papers":[
   {
     "name": "Selecting good views of high-dimensional data using class consistency",
     "venue": "EuroVis",
     "year": 2009,
     "imagePath": "assets/avatars/Data_Processing4VIS.png",
+    "url": "https://arxiv.org/list/cs/new",
+    "others": {
+      "authors": "",
+      "doi": "xxx"
+    },
     "VIS_NEW": ["Data Processing4VIS"],
     "ML": ["Clustering"],
     "FRUIT": ["Apple", "Banana"]

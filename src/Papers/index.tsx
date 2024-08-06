@@ -42,33 +42,11 @@ export function Papers(props: Props) {
   const allTags = getAllTags();
   console.log("allTags: ", allTags)
 
-  // const getBgColor = (tag: string)=> {
-  //   console.log("tag here is: ", tag)
-  //   const index = Object.keys(props.tags).indexOf(tag)
-  //   if (colors){
-  //     return colors[index]
-  //   }
-  //   return COLORS[index]
-  // }
-
   const getBgColor = (tag) => {
     // console.log('props.tags:', props.tags);
-    console.log("allTags: ", allTags)
-    console.log("tag here is: ", tag)
+    // console.log("allTags: ", allTags)
+    // console.log("tag here is: ", tag)
 
-    // if (!allTags || !Object.keys(allTags).length) {
-    //   console.warn('Tags are undefined or empty.');
-    //   return 'defaultColor'; 
-    // }
-  
-    // const index = Object.keys(allTags).indexOf(tag);
-    // console.log("index: ", index)
-    // if (index === -1) {
-    //   console.warn('Tag not found:', tag);
-    //   return 'defaultColor'; 
-    // }
-  
-    // return colors && colors.length > index ? colors[index] : COLORS[index];
     const index = Object.keys(allTags).indexOf(tag)
     console.log("index here: ", index)
     if (colors){
@@ -81,10 +59,11 @@ export function Papers(props: Props) {
   const AvatarComponent = ({ tag, bgcolor }) => {
     const avatarSrc = `assets/avatars/${tag.replace(' ', '_')}_w.png`;
     return (
-      <Avatar alt={getAvatar(tag)} src={avatarSrc} style={{ width: 24, height: 24, backgroundColor: bgcolor, color: "white" }}></Avatar>
+      <Avatar alt={getAvatar(tag)} src={avatarSrc} style={{ width: 24, height: 24, backgroundColor: bgcolor, color: "white" }}><b style={{ fontSize: '0.75rem' }}>{getAvatar(tag)}</b></Avatar>
     );
   };
 
+  
   
   return (
     <Grid container className={classes.root} spacing={2}>
@@ -99,47 +78,24 @@ export function Papers(props: Props) {
                     alt="Figure 1"
                     height="60%"
                     width="100%"
-                    image={paper.imagePath}
+                    image={(paper.imagePath && paper.imagePath !== '') ? paper.imagePath : 'assets/paperImages/default.png'}
                   />
-                  {/* <Typography
-                    className={classes.title}
-                    color="textSecondary"
-                    gutterBottom
-                  >
-                    {paper.venue} {paper.year}
-                  </Typography> */}
-                  <Typography
-                    variant="subtitle1"
-                    component="p"
-                    className={classes.title}
-                  >
+                  <Typography variant="subtitle1" component="p" className={classes.title}>
                     {paper.name}
                   </Typography>
                   <Typography className={classes.pos} color="textSecondary">
                     {paper.venue} {paper.year}
                   </Typography>
+                  {paper.others && Object.keys(paper.others).map((key, index) => (
+                    <Typography key={index} className={classes.pos} color="textSecondary">
+                      {key}: {paper.others[key]}
+                    </Typography>
+                  ))}
+
                   {/* <Typography variant="body2" component="p">
                     Author1, Author2, Author3, and Author4
                   </Typography> */}
 
-                  {/* <div className={classes.grow}></div>
-                  <div className={classes.tags}>
-                  <AvatarGroup className={classes.avatarGroup}>
-                    {paper.VIS.map((v) => (
-                      // <Avatar key={v} className={classes.VISTag}>
-                      //   {getAvatar(v)}
-                      // </Avatar>
-                      <Avatar key={v} className={classes.VISTag} src={`assets/avatars/${v.replace(' ', '_')}_w.png`} />
-                    ))}
-                  </AvatarGroup>
-                  <AvatarGroup className={classes.avatarGroup}>
-                    {paper.ML.map((m) => (
-                      <Avatar key={m} className={classes.MLTag}>
-                        <b>{getAvatar(m)}</b>
-                      </Avatar>
-                    ))}
-                  </AvatarGroup>
-                  </div> */}
                   <div className={classes.grow}></div>
                   <div className={classes.tags}>
                     {Object.entries(allTags).map(([k, value]) => (

@@ -1,35 +1,47 @@
-<!-- # Applying Machine Learning Advances to Data Visualization: A Survey on ML4VIS
-Qianwen Wang, Zhutian Chen, Yong Wang, Huamin Qu
+# A web-based interactive browser inspired by ML4VIS
 
-This github repo hosts a web-based interactive browser of our survey on ML4VIS at https://ml4vis.github.io.  
-This survey is published at IEEE Transactions on Visualization and Computer Graphics, [link](https://ieeexplore.ieee.org/document/9523770).
-A preprint of this survey is available at https://arxiv.org/abs/2012.00467
+**Overview**
 
-We are continuing to update this interactive survey browser. You can switch between the version used in the survey paper and the latest version including more ML4VIS papers.  
-Contributions are wellcome! Read more about [how to contribute](#how-to-contribute)
+This github repo hosts a web-based interactive browser that has inspired new developments that now allow users to upload any work with any tags. This enhancement facilitates broader participation and the sharing of a wide range of contributions, fostering a more inclusive and comprehensive usage of ML4VIS applications.
 
-https://user-images.githubusercontent.com/19774198/188285436-214f4503-db35-4493-9115-7a398b40dace.mp4
+ML4VIS
+Browser: https://ml4vis.github.io
+Preprint: https://arxiv.org/abs/2012.00467
 
-**Abstract**
+**Usage**
+This browser takes a json file to load, the suggested format of the json file is as follows:
+{
+  "title": "",
+  "colors": ["#000", "orange"],     # You can define any color here, we suggest 'num of colors' = 'num of unique tag'; Otherwise the browser will use the default color defined by us 
+  "github": "",     # You can put the github link related to your work here               
+  "preprint": " ",      # You can put the preprint link related to your work here  
+  "topTheme": "#b31b1b",        # You can define the theme color of the top bar here
+  "papers":[
+  {
+    "name": "",     # The name of your work
+    "venue": "",    # The venue of the work
+    "year": 2024,   # The year of the work
+    "imagePath": "assets/paperImages/default.png",     # You can include an image associated with your work, you can put the path of your image here, the default path of images is as shown     
+    "url": "",      # You can include a direct url link associated with your work here
+    "others": {     # You can include any other information you want the browser include here
+      "authors": "",
+      "doi": "xxx"
+    },
+    "tag1": [""],        # You can include any tags here, for example: "Major": ["CS", "MATH", "STAT], "CS_BRANCH": ["Artificial Intelligence", "Machine Learning"]...
+    "tag2": [""],
+  }]
+}
 
-Inspired by the great success of machine learning (ML), researchers have applied ML techniques to visualizations to achieve a better design, development, and evaluation of visualizations. This branch of studies, known as ML4VIS, is gaining increasing research attention in recent years. To successfully adapt ML techniques for visualizations, a structured understanding of the integration of ML4VISis needed. In this paper, we systematically survey ML4VIS studies, aiming to answer two motivating questions: “what visualizationprocesses can be assisted by ML?” and “how ML techniques can be used to solve visualization problems?” This survey reveals seven main processes where the employment of ML techniques can benefit visualizations: Data Processing4VIS, Data-VIS Mapping, Insight Communication, Style Imitation, VIS Interaction, VIS Reading, and User Profiling. The seven processes are related to existingvisualization theoretical models in an ML4VIS pipeline, aiming to illuminate the role of ML-assisted visualization in general visualizations. Meanwhile, the seven processes are mapped into main learning tasks in ML to align the capabilities of ML with the needs in visualization. Current practices and future opportunities of ML4VIS are discussed in the context of the ML4VIS pipeline and the ML-VIS mapping. While more studies are still needed in the area of ML4VIS, we hope this paper can provide a stepping-stone for future exploration. A web-based interactive browser of this survey is available at https://ml4vis.github.io.
+All categories are optional, we included an example json file 'arxiv_new.json' to demostrate (Replace the file name with your json file: const defaultVersion = "arxiv_new")
 
-### Cite this survey
-```
-@ARTICLE{wang2020applying,
-  author={Wang, Qianwen and Chen, Zhutian and Wang, Yong and Qu, Huamin},
-  journal={IEEE Transactions on Visualization and Computer Graphics}, 
-  title={A Survey on ML4VIS: Applying MachineLearning Advances to Data Visualization}, 
-  year={2021},
-  doi={10.1109/TVCG.2021.3106142}}
-```
-### How to contribute
-This interactive survey webpage will continue to be updated to reflect future advancements.  
-Your contribution is highly appreciated!  
-To suggest new related papers,
-please [create an issue using the **Suggest new ML4VIS paper** template](https://github.com/ML4VIS/ML4VIS.github.io/issues/new?assignees=&labels=enhancement&template=suggest-new-ml4vis-papers.md&title=Suggest+Paper%3A+%5Bpaper+title%5D) in this repo.
+For avatar: the default setting is the acronym of the tag, you can replace it with an white icon image (for example: assets/avatars/Artificial_Intelligence_w.png)
 
-> **Imposter syndrome disclaimer:** We want your help! There may be a little voice inside your head that is telling you that you're not ready, that you aren't skilled enough to contribute. We assure you that the little voice in your head is wrong. Most importantly, there are many valuable ways to contribute besides writing code.
->
-> This disclaimer was adapted from the [Pooch](https://github.com/fatiando/pooch) project.
 
+### Run the code in your local machine
+make sure you have node.js installed in your computer.
+
+Install dependencies (only needed the first time)
+```npm install```
+
+Run the code
+```npm run dev```

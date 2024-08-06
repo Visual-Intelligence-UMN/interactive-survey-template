@@ -24,13 +24,14 @@ interface Props {
   title: string;
   preprint: string;
   github: string;
+  topTheme: string;
   handleDrawerToggle: () => void;
   onProfileMenuOpen: (e: React.MouseEvent<HTMLElement>) => void;
 }
 
 export function TopBar(props: Props) {
   const classes = useStyles();
-  const {title, preprint, github, onProfileMenuOpen, handleDrawerToggle } = props;
+  const {title, preprint, github, topTheme, onProfileMenuOpen, handleDrawerToggle } = props;
   console.log("preprint here: ", preprint)
 
   return (
