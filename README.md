@@ -9,7 +9,9 @@ Browser: https://ml4vis.github.io
 Preprint: https://arxiv.org/abs/2012.00467
 
 **Usage**
+
 This browser takes a json file to load, the suggested format of the json file is as follows:
+
 {
   "title": "",
   "colors": ["#000", "orange"],     
@@ -32,6 +34,7 @@ This browser takes a json file to load, the suggested format of the json file is
 }
 
 -Explanantion of each category:
+
 "title": The name of ypur survey/study/reserach
 "colors": You can define any color here, we suggest 'num of colors' = 'num of unique tag'; Otherwise the browser will use the default color defined by us 
 "github": You can put the github link related to your work here    
