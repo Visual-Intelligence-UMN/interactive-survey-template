@@ -10,6 +10,8 @@ Preprint: https://arxiv.org/abs/2012.00467
 
 **Usage**
 This browser takes a json file to load, the suggested format of the json file is as follows:
+
+
 {
   "title": "",
   "colors": ["#000", "orange"],     # You can define any color here, we suggest 'num of colors' = 'num of unique tag'; Otherwise the browser will use the default color defined by us 
