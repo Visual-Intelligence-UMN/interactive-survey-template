@@ -34,38 +34,27 @@ This browser takes a JSON file to load. The suggested format of the JSON file is
     }
   ]
 }
+```
 
+Explanation of Each Category
+title: The name of your survey/study/research.
+colors: You can define any colors here. We suggest the number of colors equals the number of unique tags; otherwise, the browser will use the default colors defined by us.
+github: You can put the GitHub link related to your work here.
+preprint: You can put the preprint link related to your work here.
+topTheme: You can define the theme color of the top bar here.
+papers:
+name: The name of the work.
+venue: The venue of the work.
+year: The year of the work.
+imagePath: The path to an image associated with your work. The default path is shown.
+url: The direct URL link associated with your work.
+others: Any other information you want the browser to include.
+tags: You can include any tags here, for example, "Major": ["CS", "MATH", "STAT"], "CS_BRANCH": ["Artificial Intelligence", "Machine Learning"].
 
-#Explanantion of each category:
+-All categories are optional. We included an example JSON file arxiv_new.json to demonstrate (replace the file name with your JSON file: const defaultVersion = "arxiv_new").
 
--"title": The name of ypur survey/study/reserach
-
--"colors": You can define any color here, we suggest 'num of colors' = 'num of unique tag'; Otherwise the browser will use the default color defined by us 
-
--"github": You can put the github link related to your work here  
-
--"preprint": You can put the preprint link related to your work here  
-
--"topTheme": You can define the theme color of the top bar here
-
--"papers"-"name": The name of the work
-
--"papers"-"venue": The venue of the work
-
--"papers"-"year": The year of the work
-
--"papers"-"imagePath": You can include an image associated with your work, you can put the path of your image here, the default path of images is as shown     
-
--"papers"- "url": You can include a direct url link associated with your work here
-
--"papers"- "others": You can include any other information you want the browser include here
-
--"papers"-"tags": tag1/tag2/tag3...      # You can include any tags here, for example: "Major": ["CS", "MATH", "STAT], "CS_BRANCH": ["Artificial Intelligence", "Machine Learning"]...
-
-
-All categories are optional, we included an example json file 'arxiv_new.json' to demostrate (Replace the file name with your json file: const defaultVersion = "arxiv_new")
-
-For avatar: the default setting is the acronym of the tag, you can replace it with an white icon image (for example: assets/avatars/Artificial_Intelligence_w.png)
+Avatar
+The default setting is the acronym of the tag. You can replace it with a white icon image (for example: assets/avatars/Artificial_Intelligence_w.png).
 
 
 ### Run the code in your local machine
