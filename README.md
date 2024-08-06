@@ -1,67 +1,66 @@
-# A web-based interactive browser inspired by ML4VIS
+# A Web-Based Interactive Browser Inspired by ML4VIS
 
-**Overview**
+## Overview
 
-This github repo hosts a web-based interactive browser that has inspired new developments that now allow users to upload any work with any tags. This enhancement facilitates broader participation and the sharing of a wide range of contributions, fostering a more inclusive and comprehensive usage of ML4VIS applications.
+This GitHub repository hosts a web-based interactive browser inspired by ML4VIS. It allows users to upload any work with any tags, facilitating broader participation and the sharing of diverse contributions. This enhancement fosters a more inclusive and comprehensive usage of ML4VIS applications.
 
-ML4VIS
-Browser: https://ml4vis.github.io
-Preprint: https://arxiv.org/abs/2012.00467
+- **ML4VIS Browser**: [https://ml4vis.github.io](https://ml4vis.github.io)
+- **Preprint**: [https://arxiv.org/abs/2012.00467](https://arxiv.org/abs/2012.00467)
 
-**Usage**
+## Usage
 
-This browser takes a json file to load, the suggested format of the json file is as follows:
+This browser takes a JSON file to load. The suggested format of the JSON file is as follows:
 
+```json
 {
   "title": "",
-  
-  "colors": ["#000", "orange"],     
-  "github": "",                
-  "preprint": " ",      
-  "topTheme": "#b31b1b",    
-  "papers":[
+  "colors": ["#000", "orange"],
+  "github": "",
+  "preprint": " ",
+  "topTheme": "#b31b1b",
+  "papers": [
     {
-      "name": "",    
-      "venue": "",   
-      "year": 2024,   
-      "imagePath": "assets/paperImages/default.png",     
-      "url": "",      
-      "others": {    
+      "name": "",
+      "venue": "",
+      "year": 2024,
+      "imagePath": "assets/paperImages/default.png",
+      "url": "",
+      "others": {
         "authors": "",
-        
         "doi": "xxx"
       },
       "tag1": [""],
-      
-      "tag2": [""],
+      "tag2": [""]
     }
+  ]
 }
 
--Explanantion of each category:
 
-"title": The name of ypur survey/study/reserach
+#Explanantion of each category:
 
-"colors": You can define any color here, we suggest 'num of colors' = 'num of unique tag'; Otherwise the browser will use the default color defined by us 
+-"title": The name of ypur survey/study/reserach
 
-"github": You can put the github link related to your work here  
+-"colors": You can define any color here, we suggest 'num of colors' = 'num of unique tag'; Otherwise the browser will use the default color defined by us 
 
-"preprint": You can put the preprint link related to your work here  
+-"github": You can put the github link related to your work here  
 
-"topTheme": You can define the theme color of the top bar here
+-"preprint": You can put the preprint link related to your work here  
 
-"papers"-"name": The name of the work
+-"topTheme": You can define the theme color of the top bar here
 
-"papers"-"venue": The venue of the work
+-"papers"-"name": The name of the work
 
-"papers"-"year": The year of the work
+-"papers"-"venue": The venue of the work
 
-"papers"-"imagePath": You can include an image associated with your work, you can put the path of your image here, the default path of images is as shown     
+-"papers"-"year": The year of the work
 
-"papers"- "url": You can include a direct url link associated with your work here
+-"papers"-"imagePath": You can include an image associated with your work, you can put the path of your image here, the default path of images is as shown     
 
-"papers"- "others": You can include any other information you want the browser include here
+-"papers"- "url": You can include a direct url link associated with your work here
 
-"papers"-"tags": tag1/tag2/tag3...      # You can include any tags here, for example: "Major": ["CS", "MATH", "STAT], "CS_BRANCH": ["Artificial Intelligence", "Machine Learning"]...
+-"papers"- "others": You can include any other information you want the browser include here
+
+-"papers"-"tags": tag1/tag2/tag3...      # You can include any tags here, for example: "Major": ["CS", "MATH", "STAT], "CS_BRANCH": ["Artificial Intelligence", "Machine Learning"]...
 
 
 All categories are optional, we included an example json file 'arxiv_new.json' to demostrate (Replace the file name with your json file: const defaultVersion = "arxiv_new")
