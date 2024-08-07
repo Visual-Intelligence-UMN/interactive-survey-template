@@ -6,10 +6,51 @@ This codebase was originally developed to host [our ML4VIS Survey](https://ml4vi
 We later received several requests about using the code base for hosting their own surveys, and thus modified it and created this repository. 
 Now, you can host customized surveys by simply modifying a JSON file (`assets/papers.json`).
 
-Developed and tested using `node.js@16.10.0`
+This repo is developed and tested using `node.js@16.10.0`
 
 ## How to host it on github page
+### 1. Fork the Repository
 
+Fork this repository to your GitHub account by clicking the "Fork" button at the top right corner of the repository page.
+
+### 2. Enable GitHub Actions
+
+Go to your forked repository, navigate to the "Actions" tab, and enable GitHub Actions by clicking the "Enable Actions" button.
+
+### 3. Enable GitHub Pages
+
+1. Go to the "Settings" tab of your forked repository.
+2. Scroll down to the "Pages" section in the left sidebar.
+3. Under "Source," select "Deploy from a branch."
+4. Choose the `gh-pages` branch and click "Save."
+
+### 4. Update `papers.json`
+
+Update the `papers.json` file to include your own list of papers. Add icon figures and paper figures as needed:
+
+- Store paper images in the `assets/paperImages/` directory.
+- Store icon images in the `assets/avatars` directory, named as `{dimension name}_{tag name}.png`. If an icon image is not specified, the first character of the tag name will be used as the icon by default.
+
+Detailed instructions on modifying the `papers.json` file can be found below.
+
+### 5. Update `package.json`
+
+Update the `homepage` field in `package.json` to match your GitHub account:
+
+```json
+"homepage": "https://{your-github-username}.github.io/interactive-survey-template/"
+```
+Replace {your-github-username} with your actual GitHub username.
+
+### 6. Push Changes and Deploy
+After making the necessary updates, commit your changes and push the changes to the main branch of your repository.
+GitHub Actions will automatically start the deployment process once changes are pushed.
+Once successfully deployed, your survey will be avaiable at `https://{your-github-username}.github.io/interactive-survey-template/`
+
+
+If you needed to change the repository name ([how to rename a repo](https://docs.github.com/en/repositories/creating-and-managing-repositories/renaming-a-repository#)), please also update the homepage field in package.json accordingly to `https://{your-github-username}.github.io/{new-repo-name}/`
+
+Push the changes, and the survey website will now be available at the new url.
 
 ## How to modify the JSON file
 
