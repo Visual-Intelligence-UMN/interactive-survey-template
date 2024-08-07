@@ -3,7 +3,7 @@
     "version": "1.0.0",
     "description": "",
     "main": "index.js",
-    "homepage": "./",
+    "homepage": "https://visual-intelligence-umn.github.io/interactive-survey-template/",
     "scripts": {
         "dev": "webpack serve",
         "build": "webpack --mode=production && cp -r assets dist/"
