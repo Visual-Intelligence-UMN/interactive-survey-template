@@ -9,6 +9,7 @@ export const useStyles = makeStyles((theme: Theme) =>
         root: {
             flexGrow: 1,
             padding: theme.spacing(3),
+            height: '100%',
         },
         grow: {
             flexGrow: 1,
@@ -18,7 +19,12 @@ export const useStyles = makeStyles((theme: Theme) =>
         },
         card: {
             width: 300,
-            height: 400
+            height: 250,
+            // minHeight: 180,
+            // maxHeight: 400,
+        },
+        media: {
+            height: 100,
         },
         cardContent: {
             display: 'flex',
