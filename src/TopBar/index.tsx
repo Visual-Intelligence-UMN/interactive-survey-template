@@ -71,15 +71,7 @@ export function TopBar(props: Props) {
                     >
                         <Home /> <span style={{ fontSize: '12px' }} className={classes.iconName}>{' '}Homepage </span>
                     </IconButton>
-                    {/* <IconButton
-            edge="end"
-            aria-label="suggest new ML4VIS papers for this survey"
-            aria-haspopup="true"
-            onClick={()=>window.open("https://github.com/ML4VIS/ML4VIS.github.io/issues/new?assignees=&labels=enhancement&template=suggest-new-ml4vis-papers.md&title=Suggest+Paper%3A+%5Bpaper+title%5D")}
-            color="inherit"
-          >
-            <CloudUpload />  <span style={{fontSize: '12px'}} className={classes.iconName}> {' '}Contribute </span>
-          </IconButton> */}
+
                 </div>
             </Toolbar>
         </AppBar>

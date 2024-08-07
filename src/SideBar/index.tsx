@@ -82,7 +82,7 @@ export function SideBar(props: Props) {
         return (
             <>
                 <Typography variant="subtitle2" className={classes.filterTitle}>
-                    {typeName} filter: <Button variant="outlined" size="small" onClick={() => onClickFilter("all", typeName)}>{Object.values(tagsCollection).every(d => d) ? 'Unselect All' : 'Select All'}</Button>
+                    {typeName} : <Button variant="outlined" size="small" onClick={() => onClickFilter("all", typeName)}>{Object.values(tagsCollection).every(d => d) ? 'Unselect All' : 'Select All'}</Button>
                 </Typography>
                 <div className={classes.filters}>
                     {Object.entries(tagsCollection).map(([tag, checked]) => (
@@ -142,26 +142,7 @@ export function SideBar(props: Props) {
         {Object.keys(tagFilters).map((typeName) => renderFilters(typeName))}
 
         <Divider />
-        {/* <FormControl required className={classes.formControl}>
-    <InputLabel>Version</InputLabel> */}
-        {/* <Typography variant="subtitle2" className={classes.filterTitle}>
-      Select a version:
 
-      <Select
-        native
-        value={props.version}
-        onChange={(e: React.ChangeEvent<{ value: string }>) => props.onSetVersion(e.target.value)}
-        style={{ marginLeft: '10px' }}
-        name="version"
-        inputProps={{
-          id: 'version-required',
-        }}
-      >
-        <option value={'survey'}> ML4VIS Survey 2020</option>
-        <option value={'latest'}> Latest</option>
-      </Select>
-    </Typography> */}
-        {/* </FormControl> */}
     </div>
 
     return (<>

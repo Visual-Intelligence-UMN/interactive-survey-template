@@ -71,13 +71,7 @@ export function Papers(props: Props) {
                         <Grid key={i} item>
                             <Card className={classes.card}>
                                 <CardContent className={classes.cardContent} onClick={() => onClickPaper(paper)}>
-                                    {paper.imagePath && paper.imagePath !== '' &&
-                                        <CardMedia
-                                            component="img"
-                                            alt="Figure 1"
-                                            className={classes.media}
-                                            image={paper.imagePath}
-                                        />}
+
                                     <Typography variant="subtitle1" component="p" className={classes.title}>
                                         {paper.name}
                                     </Typography>
@@ -89,6 +83,14 @@ export function Papers(props: Props) {
                                             {key}: {paper.others[key]}
                                         </Typography>
                                     ))}
+
+                                    {paper.imagePath && paper.imagePath !== '' &&
+                                        <CardMedia
+                                            component="img"
+                                            alt="Figure 1"
+                                            className={classes.media}
+                                            image={paper.imagePath}
+                                        />}
 
                                     <div className={classes.grow}> </div>
                                     <div className={classes.tags}>

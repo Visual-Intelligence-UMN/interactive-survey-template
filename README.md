@@ -1,55 +1,70 @@
-# A Web-Based Interactive Browser Inspired by ML4VIS
+# An Interactive Web-Based Browser for Paper Surveys (and Other Awesome Lists!)
 
 ## Overview
 
-This GitHub repository hosts a web-based interactive browser inspired by ML4VIS. It allows users to upload any work with any tags, facilitating broader participation and the sharing of diverse contributions. This enhancement fosters a more inclusive and comprehensive usage of ML4VIS applications.
+This codebase was originally developed to host [our ML4VIS Survey](https://ml4vis.github.io). 
+We later received several requests about using the code base for hosting their own surveys, and thus modified it and created this repository. 
+Now, you can host customized surveys by simply modifying a JSON file (`assets/papers.json`).
 
-- **ML4VIS Browser**: [https://ml4vis.github.io](https://ml4vis.github.io)
-- **Preprint**: [https://arxiv.org/abs/2012.00467](https://arxiv.org/abs/2012.00467)
+Developed and tested using node.js@16.10.0
 
-## Usage
+## How to host it on github page
 
-This browser takes a JSON file to load. The suggested format of the JSON file is as follows:
+
+## How to modify the JSON file
+
+You can see a detailed example in `assets/papers.json`.
+Below is an explanation of the JSON format.
 
 ```json
 {
-  "title": "",
-  "colors": ["#000", "orange"],
-  "github": "",
-  "preprint": " ",
-  "topTheme": "#b31b1b",
+  "title": "", // The name of ypur survey, will show in the header
+  "colors": ["#000", "orange"], // your homepage link
+  "homepage": "",
+  "preprint": " ", // preprint link
+  "topTheme": "#333", // color of the top bar
+  // below is a list of papers
   "papers": [
     {
       "name": "",
       "venue": "",
       "year": 2024,
-      "imagePath": "assets/paperImages/default.png",
-      "url": "",
+      "imagePath": "assets/paperImages/default.png", // optional field, if provided, show the image inside the paper card
+      "url": "", // a new tab of this url will be open when click the paper card
+      // optional field, if provided, key-value pair will display at the bottom of the paper card
       "others": {
         "authors": "",
         "doi": "xxx"
       },
-      "tag1": [""],
-      "tag2": [""]
-    }
+      "dimension_one": [""],
+      "dimension_two": [""]
+    },
+    {
+        // paper 2
+    },
+    // other papers
+    //...
   ]
 }
 ```
 
-## Explanation of Each Category
-"title": The name of ypur survey/study/reserach
+**Add Paper Figures and Tag Icons**
 
-"colors": You can define any color here, we suggest 'num of colors' = 'num of unique tag'; Otherwise the browser will use the default color defined by us
+`title`: 
 
-"github": You can put the github link related to your work here
+`colors`: You can define any color here, we suggest 'num of colors' = 'num of unique dimensions'; Otherwise the browser will use the default color palatte
 
-"preprint": You can put the preprint link related to your work here
+`homepage`: You can put the github link related to your work here
 
-"topTheme": You can define the theme color of the top bar here
+`preprint`: You can put the preprint link related to your work here
 
-"papers"-"name": The name of the work
+`topTheme`: You can define the theme color of the top bar here
 
-"papers"-"venue": The venue of the work
+`papers`: a list of papers. for each paper:
+   
+`name`: The name of the paper
+
+    `name`: The venue of the work
 
 "papers"-"year": The year of the work
 
@@ -68,7 +83,7 @@ The default setting is the acronym of the tag. You can replace it with a white i
 
 
 ### Run the code in your local machine
-make sure you have node.js installed in your computer.
+
 
 Install dependencies (only needed the first time)
 ```npm install```
