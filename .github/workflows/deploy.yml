@@ -26,6 +26,8 @@ jobs:
           fi
           npm run build
   build-and-deploy:
+    permissions:
+      contents: write
     if: github.event_name != 'pull_request'
     runs-on: ubuntu-latest
     steps:
@@ -34,7 +36,7 @@ jobs:
           submodules: 'true'
       - uses: actions/setup-node@v3
         with:
-          node-version: '14.x'
+          node-version: '16.x'
 
       - name: build
         run: |
