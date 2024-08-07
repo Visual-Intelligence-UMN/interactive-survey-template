@@ -16,7 +16,7 @@ Developed and tested using `node.js@16.10.0`
 You can see a detailed example in `assets/papers.json`.
 Below is an explanation of the JSON format.
 
-```json
+```javascript
 {
   "title": "", // The name of ypur survey, will show in the header
   "colors": ["#000", "orange"], // your homepage link
