@@ -1,4 +1,4 @@
-# An Interactive Web-Based Browser for Paper Surveys (and Other Awesome Lists!)
+# A Template for Hosting Intearctive Paper Survey Browsers (or Any Other Awesome Lists!)
 
 
 ## Overview
