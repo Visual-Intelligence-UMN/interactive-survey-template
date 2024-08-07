@@ -75,7 +75,7 @@ export default function App() {
     // const menuId = "primary-search-account-menu";
 
     const fetchData = async (version: string) => {
-        const response = await fetch(`/assets/${version}.json`);
+        const response = await fetch(`./assets/${version}.json`);
         const res = await response.json();
         const { papers, title, colors, preprint, homepage, topTheme } = res;
 
@@ -126,7 +126,6 @@ export default function App() {
             }
             return o
         }, {})
-        console.log("initialPaperYear", initialPaperYear)
 
         const initialPaperArea = papers.reduce((o, d) => {
             if (!(d.venue in o)) {
@@ -156,7 +155,6 @@ export default function App() {
         };
 
         const uniqueTagsCount = countUniqueTags(papers);
-        console.log("uniqueTagsCount: ", uniqueTagsCount);
 
         setPaperAreas(initialPaperArea)
         setPaperYears(initialPaperYear)
@@ -177,7 +175,7 @@ export default function App() {
     const onClickFilter = (tag, typeName) => {
         if (tag === "all") {
             const allSelected = Object.values(tagFilters[typeName]).every(d => d);
-            console.log("allSelected : ", allSelected)
+
             const newTags = Object.keys(tagFilters[typeName]).reduce((acc, key) => {
                 acc[key] = !allSelected;
                 return acc;
@@ -187,7 +185,6 @@ export default function App() {
                 ...tagFilters,
                 [typeName]: newTags
             };
-            console.log("newTagFilters: ", newTagFilters)
             setTagFilters(newTagFilters);
         } else {
             const newTagFilters = {
@@ -197,7 +194,6 @@ export default function App() {
                     [tag]: !tagFilters[typeName][tag]
                 }
             };
-            console.log("newTagFilters: ", newTagFilters)
             setTagFilters(newTagFilters);
         }
     };
@@ -214,7 +210,6 @@ export default function App() {
         fetchData(version)
     }
 
-    console.log("tagFilters: ", tagFilters)
     const papersAfterFilter = papers.filter((p) => {
         // Check if every category present in the paper has all tags set to true in tagFilters
         const allTagsTrue = Object.keys(tagFilters).every(type =>
@@ -224,7 +219,6 @@ export default function App() {
         return allTagsTrue && p['name'].toLowerCase().includes(searchKey);
     });
 
-    console.log("papersAfterFilter: ", papersAfterFilter)
 
     return (
         <ThemeProvider theme={theme}>

@@ -32,7 +32,6 @@ interface Props {
 export function TopBar(props: Props) {
     const classes = useStyles();
     const { title, preprint, github, topTheme, onProfileMenuOpen, handleDrawerToggle } = props;
-    console.log("preprint here: ", preprint)
 
     return (
         <AppBar position="fixed" className={classes.appBar} style={{ backgroundColor: topTheme }}>

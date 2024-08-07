@@ -55,10 +55,7 @@ export function SideBar(props: Props) {
 
 
     const getBgColor = (tag: string) => {
-        console.log("check tag here: ", tag)
-        console.log('props.tags:', props.tags);
         const index = Object.keys(props.tags).indexOf(tag)
-        console.log("index here is: ", index)
         if (colors) {
             return colors[index]
         }
@@ -78,7 +75,6 @@ export function SideBar(props: Props) {
 
     const renderFilters = (typeName: string) => {
         const tagsCollection = props.tagFilters[typeName];
-        console.info('tagsCollection', tagsCollection)
         return (
             <>
                 <Typography variant="subtitle2" className={classes.filterTitle}>
