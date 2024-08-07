@@ -10,7 +10,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 module.exports = {
     // devtool: 'inline-source-map',
     devtool: 'source-map',
-    mode: 'development',
+    mode: 'production',
     devServer: {
         contentBase: [path.join(__dirname, 'videos'), path.join(__dirname, 'assets')],
         contentBasePublicPath: ['/videos', '/assets'],

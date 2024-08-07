@@ -13,7 +13,9 @@ import { Papers } from "./Papers";
 import { SideBar } from "./SideBar";
 
 import { useStyles, theme } from "./style";
-import { use } from "echarts";
+
+export const basePath = process.env.REACT_APP_BASE_URL || ''
+
 
 //Use tags dynamically
 let allTags = {};
@@ -62,7 +64,6 @@ export default function App() {
     // const menuId = "primary-search-account-menu";
 
     const fetchData = async (version: string) => {
-        const basePath = window.location.origin
         const response = await fetch(`${basePath}/assets/${version}.json`);
         const res = await response.json();
         const { papers, title, colors, preprint, homepage, topTheme } = res;

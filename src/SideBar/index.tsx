@@ -22,6 +22,7 @@ import { useStyles } from "./style";
 
 import { ChartModal } from '../ChartModal'
 import { List } from "echarts";
+import { basePath } from "..";
 
 export const getAvatar = (s: string) => {
     const pieces = s.split(" ");
@@ -80,7 +81,7 @@ export function SideBar(props: Props) {
 
 
     const AvatarComponent = ({ tag, bgcolor, typeName }) => {
-        const avatarSrc = `${window.location.origin}/assets/avatars/${typeName}_${tag}.png`;
+        const avatarSrc = `${basePath}/assets/avatars/${typeName}_${tag}.png`;
         // console.log("getAvatar(tag): ", getAvatar(tag))    
         return (
             <Avatar alt={getAvatar(tag)} src={avatarSrc} style={{ width: 24, height: 24, marginLeft: 6, backgroundColor: bgcolor, color: "white", border: "1px solid white" }}><b style={{ fontSize: '0.75rem' }}>{getAvatar(tag)}</b></Avatar>
