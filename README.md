@@ -6,7 +6,7 @@ This codebase was originally developed to host [our ML4VIS Survey](https://ml4vi
 We later received several requests about using the code base for hosting their own surveys, and thus modified it and created this repository. 
 Now, you can host customized surveys by simply modifying a JSON file (`assets/papers.json`).
 
-Developed and tested using node.js@16.10.0
+Developed and tested using `node.js@16.10.0`
 
 ## How to host it on github page
 
@@ -29,15 +29,15 @@ Below is an explanation of the JSON format.
       "name": "",
       "venue": "",
       "year": 2024,
-      "imagePath": "assets/paperImages/default.png", // optional field, if provided, show the image inside the paper card
-      "url": "", // a new tab of this url will be open when click the paper card
-      // optional field, if provided, key-value pair will display at the bottom of the paper card
-      "others": {
+      "imagePath": "assets/paperImages/paper1.png", // optional field, if provided, show the image inside the paper card
+      "url": "", // optional, a new tab of this url will be open when click the paper card. Otherwise, the new tab will show google search results of the paper name
+      
+      "others": { // optional field, if provided, key-value pair will display at the bottom of the paper card
         "authors": "",
         "doi": "xxx"
       },
-      "dimension_one": [""],
-      "dimension_two": [""]
+      "dimension_one": ["tag 1", "tag 2"], // encodings of the paper
+      "dimension_two": ["tag 1"]
     },
     {
         // paper 2
@@ -49,37 +49,8 @@ Below is an explanation of the JSON format.
 ```
 
 **Add Paper Figures and Tag Icons**
-
-`title`: 
-
-`colors`: You can define any color here, we suggest 'num of colors' = 'num of unique dimensions'; Otherwise the browser will use the default color palatte
-
-`homepage`: You can put the github link related to your work here
-
-`preprint`: You can put the preprint link related to your work here
-
-`topTheme`: You can define the theme color of the top bar here
-
-`papers`: a list of papers. for each paper:
-   
-`name`: The name of the paper
-
-    `name`: The venue of the work
-
-"papers"-"year": The year of the work
-
-"papers"-"imagePath": You can include an image associated with your work, you can put the path of your image here, the default path of images is as shown
-
-"papers"- "url": You can include a direct url link associated with your work here
-
-"papers"- "others": You can include any other information you want the browser include here
-
-"papers"-"tags": tag1/tag2/tag3... # You can include any tags here, for example: "Major": ["CS", "MATH", "STAT], "CS_BRANCH": ["Artificial Intelligence", "Machine Learning"]...
-
--All categories are optional. We included an example JSON file arxiv_new.json to demonstrate (replace the file name with your JSON file: const defaultVersion = "arxiv_new").
-
-Avatar: 
-The default setting is the acronym of the tag. You can replace it with a white icon image (for example: assets/avatars/Artificial_Intelligence_w.png).
+- You can store paper images in the `assets/paperImages/ directory` and specify the path name in the imagePath.
+- Icons images of tags can be stored in `assets/avators`,  with filenames in the format `{dimension name}_{tag name}.png`. If an icon image is not specified, the first character of the tag name will be used as the icon by default.
 
 
 ### Run the code in your local machine
@@ -90,3 +61,5 @@ Install dependencies (only needed the first time)
 
 Run the code
 ```npm run dev```
+
+Open `http://localhost:21002/` in your web browser.

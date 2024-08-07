@@ -67,8 +67,8 @@ export function SideBar(props: Props) {
 
 
 
-    const AvatarComponent = ({ tag, bgcolor }) => {
-        const avatarSrc = `assets/avatars/${tag.replace(' ', '_')}_w.png`;
+    const AvatarComponent = ({ tag, bgcolor, typeName }) => {
+        const avatarSrc = `assets/avatars/${typeName}_${tag}.png`;
         // console.log("getAvatar(tag): ", getAvatar(tag))    
         return (
             <Avatar alt={getAvatar(tag)} src={avatarSrc} style={{ width: 24, height: 24, marginLeft: 6, backgroundColor: bgcolor, color: "white", border: "1px solid white" }}><b style={{ fontSize: '0.75rem' }}>{getAvatar(tag)}</b></Avatar>
@@ -88,7 +88,7 @@ export function SideBar(props: Props) {
                     {Object.entries(tagsCollection).map(([tag, checked]) => (
                         <Chip
                             key={tag}
-                            avatar={<AvatarComponent tag={tag} bgcolor={getBgColor(typeName)} />}
+                            avatar={<AvatarComponent tag={tag} typeName={typeName} bgcolor={getBgColor(typeName)} />}
                             label={tag}
                             clickable
                             variant={checked ? "default" : "outlined"}
