@@ -14,8 +14,7 @@ import { SideBar } from "./SideBar";
 
 import { useStyles, theme } from "./style";
 
-export const basePath = process.env.REACT_APP_BASE_URL || ''
-
+export const basePath = process.env.NODE_ENV === 'development' ? '' : '/interactive-survey-template/';
 
 //Use tags dynamically
 let allTags = {};
