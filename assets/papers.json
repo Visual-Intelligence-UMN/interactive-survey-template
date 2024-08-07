@@ -1,0 +1,93 @@
+{
+    "title": "Host Any Paper Survey Online ",
+    "colors": [
+        "#569c8e",
+        "#dbb651",
+        "#6abae6",
+        "#c9a3cc",
+        "#e8e4b5"
+    ],
+    "homepage": "./",
+    "preprint": "./",
+    "topTheme": "#333",
+    "papers": [
+        {
+            "name": "DashBot: Insight-Driven Dashboard Generation Based on Deep Reinforcement Learning",
+            "venue": "VIS",
+            "year": 2022,
+            "VIS": [
+                "Data-VIS Mapping",
+                "Insight Communication"
+            ],
+            "ML": [
+                "Reinforcement"
+            ],
+            "New Dimension": [
+                "Tag A",
+                "Tag B"
+            ]
+        },
+        {
+            "name": "Let the Chart Spark: Embedding Semantic Context into Chart with Text-to-Image Generative Model",
+            "venue": "VIS",
+            "year": 2023,
+            "VIS": [
+                "Style Imitation"
+            ],
+            "ML": [
+                "Generative"
+            ],
+            "New Dimension": [
+                "Tag A"
+            ]
+        },
+        {
+            "name": "Beyond Numbers: Creating Analogies to Enhance Data Comprehension and Communication with Generative AI",
+            "venue": "CHI",
+            "year": 2024,
+            "imagePath": "assets/paperImages/analogies.jpg",
+            "VIS": [
+                "Insight Communication"
+            ],
+            "ML": [
+                "Generative"
+            ],
+            "New Dimension": [
+                "Tag B",
+                "Tag D"
+            ]
+        },
+        {
+            "name": "DynaVis: Dynamically Synthesized UI Widgets for Visualization Editing",
+            "venue": "CHI",
+            "year": 2024,
+            "imagePath": "assets/paperImages/DynaVis.png",
+            "VIS": [
+                "VIS Reading",
+                "VIS Interaction"
+            ],
+            "ML": [
+                "Generative"
+            ],
+            "New Dimension": [
+                "Tag C",
+                "Tag D"
+            ]
+        },
+        {
+            "name": "DoodleTunes: Interactive Visual Analysis of Music-Inspired Children Doodles with Automated Feature Annotation",
+            "venue": "CHI",
+            "year": 2024,
+            "VIS": [
+                "VIS Reading"
+            ],
+            "ML": [
+                "Classification"
+            ],
+            "New Dimension": [
+                "Tag B",
+                "Tag D"
+            ]
+        }
+    ]
+}
