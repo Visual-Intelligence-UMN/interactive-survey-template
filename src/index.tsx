@@ -32,19 +32,6 @@ export interface Paper {
 }
 
 
-export const getAvatar = (s: string) => {
-    const pieces = s.split(" ");
-    if (pieces.length == 2) {
-        return `${pieces[0][0].toUpperCase()}${pieces[1][0].toUpperCase()}`;
-    } else if (pieces.length > 2 && pieces[1] == 'and') {
-        return `${pieces[0][0].toUpperCase()}${pieces[2][0].toUpperCase()}`;
-    } else if (pieces.length > 2 && pieces[2] == 'and') {
-        return `${pieces[0][0].toUpperCase()}${pieces[1][0].toUpperCase()}`;
-    } else if (pieces.length == 0) {
-        return '-'
-    }
-    return `${pieces[0][0].toUpperCase()}`;
-};
 
 export default function App() {
     const classes = useStyles();
@@ -75,7 +62,8 @@ export default function App() {
     // const menuId = "primary-search-account-menu";
 
     const fetchData = async (version: string) => {
-        const response = await fetch(`./assets/${version}.json`);
+        const basePath = window.location.origin
+        const response = await fetch(`${basePath}/assets/${version}.json`);
         const res = await response.json();
         const { papers, title, colors, preprint, homepage, topTheme } = res;
 

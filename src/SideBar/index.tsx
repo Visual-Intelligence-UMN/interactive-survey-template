@@ -17,11 +17,26 @@ import {
 } from "@material-ui/core";
 import { Search as SearchIcon, LaunchOutlined as LaunchIcon } from "@material-ui/icons";
 import Select from '@material-ui/core/Select';
-import { getAvatar } from '../index'
+
 import { useStyles } from "./style";
 
 import { ChartModal } from '../ChartModal'
 import { List } from "echarts";
+
+export const getAvatar = (s: string) => {
+    const pieces = s.split(" ");
+    if (pieces.length == 2) {
+        return `${pieces[0][0].toUpperCase()}${pieces[1][0].toUpperCase()}`;
+    } else if (pieces.length > 2 && pieces[1] == 'and') {
+        return `${pieces[0][0].toUpperCase()}${pieces[2][0].toUpperCase()}`;
+    } else if (pieces.length > 2 && pieces[2] == 'and') {
+        return `${pieces[0][0].toUpperCase()}${pieces[1][0].toUpperCase()}`;
+    } else if (pieces.length == 0) {
+        return '-'
+    }
+    return `${pieces[0][0].toUpperCase()}`;
+};
+
 
 interface Props {
     paperNumber: number;
@@ -65,7 +80,7 @@ export function SideBar(props: Props) {
 
 
     const AvatarComponent = ({ tag, bgcolor, typeName }) => {
-        const avatarSrc = `assets/avatars/${typeName}_${tag}.png`;
+        const avatarSrc = `${window.location.origin}/assets/avatars/${typeName}_${tag}.png`;
         // console.log("getAvatar(tag): ", getAvatar(tag))    
         return (
             <Avatar alt={getAvatar(tag)} src={avatarSrc} style={{ width: 24, height: 24, marginLeft: 6, backgroundColor: bgcolor, color: "white", border: "1px solid white" }}><b style={{ fontSize: '0.75rem' }}>{getAvatar(tag)}</b></Avatar>

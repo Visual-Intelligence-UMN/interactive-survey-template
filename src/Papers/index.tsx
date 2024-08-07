@@ -12,7 +12,8 @@ import {
     Typography,
 } from "@material-ui/core";
 import AvatarGroup from '@material-ui/lab/AvatarGroup';
-import { Paper as TPaper, getAvatar } from "../index";
+import { Paper as TPaper } from "../index";
+import { getAvatar } from "../SideBar";
 import { useStyles } from "./style";
 import { getAllTags } from '../index';
 
@@ -55,7 +56,7 @@ export function Papers(props: Props) {
 
 
     const AvatarComponent = ({ tag, bgcolor }) => {
-        const avatarSrc = `assets/avatars/${tag.replace(' ', '_')}_w.png`;
+        const avatarSrc = `${window.location.origin}/assets/avatars/${tag.replace(' ', '_')}_w.png`;
         return (
             <Avatar alt={getAvatar(tag)} src={avatarSrc} style={{ width: 24, height: 24, backgroundColor: bgcolor, color: "white" }}><b style={{ fontSize: '0.75rem' }}>{getAvatar(tag)}</b></Avatar>
         );
