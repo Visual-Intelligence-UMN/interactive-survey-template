@@ -35,7 +35,7 @@ export function TopBar(props: Props) {
     console.log("preprint here: ", preprint)
 
     return (
-        <AppBar position="fixed" className={classes.appBar}>
+        <AppBar position="fixed" className={classes.appBar} style={{ backgroundColor: topTheme }}>
             <Toolbar>
                 <IconButton
                     color="inherit"
