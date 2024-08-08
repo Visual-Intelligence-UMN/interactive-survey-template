@@ -30,7 +30,6 @@ interface Props {
 export function Papers(props: Props) {
     const { papers, colors, tags } = props;
 
-
     const classes = useStyles();
     const onClickPaper = (paper: TPaper) => {
         window.open(
@@ -50,12 +49,12 @@ export function Papers(props: Props) {
     }
 
 
-    const AvatarComponent = ({ tag, bgcolor }) => {
-        const avatarSrc = `${basePath}/assets/avatars/${tag.replace(' ', '_')}_w.png`;
+    const AvatarComponent = ({ tag, typeName, bgcolor }) => {
+        const avatarSrc = `${basePath}/assets/avatars/${typeName}_${tag}.png`;
         return (
             <Avatar alt={getAvatar(tag)} src={avatarSrc} style={{ width: 24, height: 24, backgroundColor: bgcolor, color: "white" }}><b style={{ fontSize: '0.75rem' }}>{getAvatar(tag)}</b></Avatar>
         );
-    };
+    }; 
 
 
 
@@ -100,7 +99,7 @@ export function Papers(props: Props) {
                                                         fontSize: "14px",
                                                         marginLeft: "-4px"
                                                     }}>
-                                                        <AvatarComponent tag={v} bgcolor={getBgColor(k)} />
+                                                        <AvatarComponent tag={v} typeName={k} bgcolor={getBgColor(k)} />
                                                         {/* <b>{getAvatar(v)}</b> */}
                                                     </Avatar>
                                                 ))}
