@@ -81,26 +81,19 @@ export default function App() {
 
         papers.forEach(paper => {
             Object.keys(paper).forEach(key => {
-                // console.log("key: ", key)
                 if (!['name', 'venue', 'year', 'url', 'imagePath', 'others'].includes(key)) {
-                    // console.log("iniitialTags[key]: ", iniitialTags[key])
                     if (!initialTags[key]) {
-                        // console.log("iniitialTags[key]: ", iniitialTags[key])
                         initialTags[key] = new Set();
                     }
-                    // console.log("paper[key]:", paper[key]);
                     paper[key].forEach(value => initialTags[key].add(value));
                 }
             });
         });
-        // console.log("iniitialTags:", iniitialTags);
 
 
         Object.keys(initialTags).forEach(key => {
             initialTags[key] = Array.from(initialTags[key]);
             initialTagFilters[key] = initialTags[key].reduce((acc, tag) => {
-                // console.log("acc: ", acc)
-                // console.log("tag: ", tag)
                 acc[tag] = true;
                 return acc;
             }, {});

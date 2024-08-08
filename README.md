@@ -72,7 +72,7 @@ Below is an explanation of the JSON format.
   "colors": ["#000", "orange"], // your homepage link
   "homepage": "",
   "preprint": " ", // preprint link
-  "topTheme": "#333", // color of the top bar
+  "topTheme": "#333", // background of the top bar (hex or rgb or image url)
   // below is a list of papers
   "papers": [
     {

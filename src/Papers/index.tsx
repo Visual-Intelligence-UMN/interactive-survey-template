@@ -42,12 +42,7 @@ export function Papers(props: Props) {
 
 
     const getBgColor = (tag) => {
-        // console.log('props.tags:', props.tags);
-        // console.log("allTags: ", allTags)
-        // console.log("tag here is: ", tag)
-
         const index = Object.keys(allTags).indexOf(tag)
-        console.log("index here: ", index)
         if (colors) {
             return colors[index]
         }

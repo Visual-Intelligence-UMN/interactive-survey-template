@@ -29,12 +29,23 @@ interface Props {
     onProfileMenuOpen: (e: React.MouseEvent<HTMLElement>) => void;
 }
 
+const topThemeBackground = (theme) => {
+    if (/^#([0-9A-F]{3}){1,2}$/i.test(theme) || /^rgb/i.test(theme)) {
+      // If topTheme is a color (hex or rgb)
+      return { backgroundColor: theme };
+    } else {
+      // If topTheme is an image url
+      return { backgroundImage: `url(${theme})`, backgroundSize: 'cover' };
+    }
+};
+
 export function TopBar(props: Props) {
     const classes = useStyles();
     const { title, preprint, github, topTheme, onProfileMenuOpen, handleDrawerToggle } = props;
 
     return (
-        <AppBar position="fixed" className={classes.appBar} style={{ backgroundColor: topTheme }}>
+        <AppBar position="fixed" className={classes.appBar} style={topThemeBackground(topTheme)}
+        >
             <Toolbar>
                 <IconButton
                     color="inherit"
