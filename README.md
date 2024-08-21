@@ -18,7 +18,7 @@ Now, you can host customized surveys by simply modifying a JSON file (`assets/pa
 
 
 
-## Creat and host your survey on GitHub page
+## Create and host your survey on GitHub page
 #### 1. Fork the Repository
 
 Fork this repository to your GitHub account by clicking the "Fork" button at the top right corner of the repository page.
@@ -51,10 +51,10 @@ Go to your forked repository, navigate to the "Actions" tab, and enable GitHub A
 #### 5. Push Changes and Deploy
 After making the necessary updates, commit your changes and push the changes to the main branch of your repository.
 GitHub Actions will automatically start the deployment process once changes are pushed.
-Once successfully deployed, your survey will be avaiable at `https://{your-github-username}.github.io/interactive-survey-template/`
+Once successfully deployed, your survey will be available at `https://{your-github-username}.github.io/interactive-survey-template/`
 
 #### 6. (Optional) Change the Repo name
-If you needed to change the repository name to better reflect your survey ([how to rename a repo](https://docs.github.com/en/repositories/creating-and-managing-repositories/renaming-a-repository#)), 
+If you need to change the repository name to better reflect your survey ([how to rename a repo](https://docs.github.com/en/repositories/creating-and-managing-repositories/renaming-a-repository#)), 
 please also update the `homepage` field in package.json 
 ```javascript
 // inside package.json
@@ -66,7 +66,7 @@ please also update the `homepage` field in package.json
 export const basePath = process.env.NODE_ENV === 'development' ? '' : '/{your-new-repo-name}/';
 ```
 
-Push the changes to your github repository, and the survey website will now be available at the new url [https://{your-github-username}.github.io/{your-new-repo-name}/](https://{your-github-username}.github.io/{}/).
+Push the changes to your github repository, and the survey website will now be available at the new URL [https://{your-github-username}.github.io/{your-new-repo-name}/](https://{your-github-username}.github.io/{}/).
 
 ## How to modify the JSON file
 
@@ -75,11 +75,11 @@ Below is an explanation of the JSON format.
 
 ```javascript
 {
-  "title": "", // The name of ypur survey, will show in the header
+  "title": "your title", // The name of your survey, will show in the header
   "colors": ["#000", "orange"], // your homepage link
   "homepage": "",
   "preprint": " ", // preprint link
-  "topTheme": "#333", // background of the top bar (hex or rgb or image url)
+  "topTheme": "#333", // background of the top bar (hex or RGB or image URL)
   // below is a list of papers
   "papers": [
     {
@@ -107,7 +107,7 @@ Below is an explanation of the JSON format.
 
 **Add Paper Figures and Tag Icons**
 - You can store paper images in the `assets/paperImages/ directory` and specify the path name in the imagePath.
-- Icons images of tags can be stored in `assets/avators`,  with filenames in the format `{dimension name}_{tag name}.png`. If an icon image is not specified, the first character of the tag name will be used as the icon by default.
+- Icons images of tags can be stored in `assets/avatars`,  with filenames in the format `{dimension name}_{tag name}.png`. If an icon image is not specified, the first character of the tag name will be used as the icon by default.
 
 
 ### Run the code in your local machine (for development)
