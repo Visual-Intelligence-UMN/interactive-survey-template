@@ -7,38 +7,47 @@
         "#c9a3cc",
         "#e8e4b5"
     ],
-    "homepage": "./",
-    "preprint": "./",
+    "homepage": "https://github.com/Visual-Intelligence-UMN/interactive-survey-template",
+    "preprint": "https://arxiv.org/abs/2012.00467",
     "topTheme": "#333",
     "papers": [
         {
-            "name": "DashBot: Insight-Driven Dashboard Generation Based on Deep Reinforcement Learning",
+            "name": "KNOWNET: Guided Health Information Seeking from LLMs via Knowledge Graph Integration",
             "venue": "VIS",
-            "year": 2022,
-            "VIS": [
-                "Data-VIS Mapping",
-                "Insight Communication"
+            "year": 2024,
+            "imagePath": "./assets/paperImages/knownet.png",
+            "Dimension One": [
+                "vis4ml"
             ],
-            "ML": [
-                "Reinforcement"
-            ],
-            "New Dimension": [
+            "Dimension Two": [
                 "Tag A",
                 "Tag B"
             ]
         },
         {
-            "name": "Let the Chart Spark: Embedding Semantic Context into Chart with Text-to-Image Generative Model",
-            "venue": "VIS",
+            "name": "DRAVA: Aligning Human Concepts with Machine Learning Latent Dimensions for the Visual Exploration of Small Multiples",
+            "venue": "CHI",
             "year": 2023,
-            "VIS": [
-                "Style Imitation"
+            "imagePath": "./assets/paperImages/drava.png",
+            "Dimension One": [
+                "vis4ml",
+                "ml4vis"
             ],
-            "ML": [
-                "Generative"
-            ],
-            "New Dimension": [
-                "Tag A"
+            "Dimension Two": [
+                "Tag C",
+                "Tag D"
+            ]
+        },
+        {
+            "name": "Narvis: Authoring Narrative Slideshows for introducing Data Visualization Designs",
+            "venue": "VIS",
+            "year": 2018,
+            "imagePath": "./assets/paperImages/narvis.png",
+            "Dimension One": [],
+            "Dimension Two": [
+                "Tag A",
+                "Tag D",
+                "Tag B"
             ]
         },
         {
@@ -46,15 +55,24 @@
             "venue": "CHI",
             "year": 2024,
             "imagePath": "./assets/paperImages/analogies.jpg",
-            "VIS": [
-                "Insight Communication"
+            "Dimension One": [
+                "ml4vis"
             ],
-            "ML": [
-                "Generative"
-            ],
-            "New Dimension": [
+            "Dimension Two": [
                 "Tag B",
                 "Tag D"
+            ]
+        },
+        {
+            "name": "Visual Analysis of Discrimination in Machine Learning",
+            "venue": "VIS",
+            "year": 2020,
+            "imagePath": "./assets/paperImages/discriLens.png",
+            "Dimension One": [
+                "vis4ml"
+            ],
+            "Dimension Two": [
+                "Tag A"
             ]
         },
         {
@@ -62,30 +80,11 @@
             "venue": "CHI",
             "year": 2024,
             "imagePath": "./assets/paperImages/DynaVis.png",
-            "VIS": [
-                "VIS Reading",
-                "VIS Interaction"
+            "Dimension One": [
+                "ml4vis"
             ],
-            "ML": [
-                "Generative"
-            ],
-            "New Dimension": [
+            "Dimension Two": [
                 "Tag C",
-                "Tag D"
-            ]
-        },
-        {
-            "name": "DoodleTunes: Interactive Visual Analysis of Music-Inspired Children Doodles with Automated Feature Annotation",
-            "venue": "CHI",
-            "year": 2024,
-            "VIS": [
-                "VIS Reading"
-            ],
-            "ML": [
-                "Classification"
-            ],
-            "New Dimension": [
-                "Tag B",
                 "Tag D"
             ]
         }
