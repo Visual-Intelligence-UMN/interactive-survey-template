@@ -1,10 +1,13 @@
-# An Interactive Web-Based Browser for Paper Surveys (and Other Awesome Lists!)
+# A Template for Hosting Intearctive Paper Survey Browsers (or Any Other Awesome Lists!)
+
 
 ## Overview
 
 This codebase was originally developed to host [our ML4VIS Survey](https://ml4vis.github.io). 
 We later received several requests about using the code base for hosting their own surveys, and thus modified it and created this repository. 
 Now, you can host customized surveys by simply modifying a JSON file (`assets/papers.json`).
+
+https://user-images.githubusercontent.com/19774198/188285436-214f4503-db35-4493-9115-7a398b40dace.mp4
 
 This repo is developed and tested using `node.js@16.10.0`
 
@@ -69,7 +72,7 @@ Below is an explanation of the JSON format.
   "colors": ["#000", "orange"], // your homepage link
   "homepage": "",
   "preprint": " ", // preprint link
-  "topTheme": "#333", // color of the top bar
+  "topTheme": "#333", // background of the top bar (hex or rgb or image url)
   // below is a list of papers
   "papers": [
     {

@@ -58,7 +58,6 @@ interface Props {
 export function SideBar(props: Props) {
     const { paperNumber, colors, tags, tagFilters, onClickFilter, onSetSearchKey, onSetVersion, paperArea, paperYear, tagCounts, mobileOpen, handleDrawerToggle } = props;
     const [anchorEl, setAnchorEl] = React.useState(null);
-    // console.log("colors: ", colors)
 
     const classes = useStyles();
     const handleClose = () => {
@@ -81,8 +80,7 @@ export function SideBar(props: Props) {
 
 
     const AvatarComponent = ({ tag, bgcolor, typeName }) => {
-        const avatarSrc = `${basePath}/assets/avatars/${typeName}_${tag}.png`;
-        // console.log("getAvatar(tag): ", getAvatar(tag))    
+        const avatarSrc = `${basePath}/assets/avatars/${typeName}_${tag}.png`; 
         return (
             <Avatar alt={getAvatar(tag)} src={avatarSrc} style={{ width: 24, height: 24, marginLeft: 6, backgroundColor: bgcolor, color: "white", border: "1px solid white" }}><b style={{ fontSize: '0.75rem' }}>{getAvatar(tag)}</b></Avatar>
         );

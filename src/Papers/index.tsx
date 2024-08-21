@@ -1,12 +1,8 @@
 import React from "react";
 import {
     Grid,
-    Paper,
     Card,
-    Button,
-    CardActions,
     Avatar,
-    Chip,
     CardContent,
     CardMedia,
     Typography,
@@ -30,7 +26,6 @@ interface Props {
 export function Papers(props: Props) {
     const { papers, colors, tags } = props;
 
-
     const classes = useStyles();
     const onClickPaper = (paper: TPaper) => {
         window.open(
@@ -42,12 +37,7 @@ export function Papers(props: Props) {
 
 
     const getBgColor = (tag) => {
-        // console.log('props.tags:', props.tags);
-        // console.log("allTags: ", allTags)
-        // console.log("tag here is: ", tag)
-
         const index = Object.keys(allTags).indexOf(tag)
-        console.log("index here: ", index)
         if (colors) {
             return colors[index]
         }
