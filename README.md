@@ -1,17 +1,24 @@
-# A Template for Hosting Intearctive Paper Survey Browsers (or Any Other Awesome Lists!)
+# A Template for Hosting Interactive Paper Survey Browsers (or Any Other Awesome Lists!)
 
 
 ## Overview
 
 This codebase was originally developed to host [our ML4VIS Survey](https://ml4vis.github.io). 
 We later received several requests about using the code base for hosting their own surveys, and thus modified it and created this repository. 
-Now, you can host customized surveys by simply modifying a JSON file (`assets/papers.json`).
-
-https://user-images.githubusercontent.com/19774198/188285436-214f4503-db35-4493-9115-7a398b40dace.mp4
 
 This repo is developed and tested using `node.js@16.10.0`
 
-## How to host it on github page
+The original ML4VIS survey
+
+https://user-images.githubusercontent.com/19774198/188285436-214f4503-db35-4493-9115-7a398b40dace.mp4
+
+Now, you can host customized surveys by simply modifying a JSON file (`assets/papers.json`).
+
+<img width="1067" alt="image" src="https://github.com/user-attachments/assets/15e30868-5212-4774-859d-3656ec03782e">
+
+
+
+## Creat and host your survey on GitHub page
 #### 1. Fork the Repository
 
 Fork this repository to your GitHub account by clicking the "Fork" button at the top right corner of the repository page.
