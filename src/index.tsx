@@ -67,6 +67,9 @@ export default function App() {
         const res = await response.json();
         const { papers, title, colors, preprint, homepage, topTheme } = res;
 
+        // sort papers by year
+        papers.sort((a, b) => a.year - b.year);
+
 
         setTopTheme(topTheme);
         setTitle(title);
