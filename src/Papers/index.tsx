@@ -55,8 +55,8 @@ export function Papers(props: Props) {
     }
 
 
-    const AvatarComponent = ({ tag, bgcolor }) => {
-        const avatarSrc = `${basePath}/assets/avatars/${tag.replace(' ', '_')}_w.png`;
+    const AvatarComponent = ({ group, tag, bgcolor }) => {
+        const avatarSrc = `${basePath}/assets/avatars/${group}_${tag}.png`;
         return (
             <Avatar alt={getAvatar(tag)} src={avatarSrc} style={{ width: 24, height: 24, backgroundColor: bgcolor, color: "white" }}><b style={{ fontSize: '0.75rem' }}>{getAvatar(tag)}</b></Avatar>
         );
@@ -95,17 +95,17 @@ export function Papers(props: Props) {
 
                                     <div className={classes.grow}> </div>
                                     <div className={classes.tags}>
-                                        {Object.entries(allTags).map(([k, value]) => (
-                                            <AvatarGroup key={k} className={classes.avatarGroup}>
-                                                {paper[k]?.map((v) => (
+                                        {Object.entries(allTags).map(([group, value]) => (
+                                            <AvatarGroup key={group} className={classes.avatarGroup}>
+                                                {paper[group]?.map((v) => (
                                                     <Avatar key={v} style={{
-                                                        backgroundColor: getBgColor(k),
+                                                        backgroundColor: getBgColor(group),
                                                         width: 32,
                                                         height: 32,
                                                         fontSize: "14px",
                                                         marginLeft: "-4px"
                                                     }}>
-                                                        <AvatarComponent tag={v} bgcolor={getBgColor(k)} />
+                                                        <AvatarComponent group={group} tag={v} bgcolor={getBgColor(group)} />
                                                         {/* <b>{getAvatar(v)}</b> */}
                                                     </Avatar>
                                                 ))}

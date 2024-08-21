@@ -92,7 +92,7 @@ export function SideBar(props: Props) {
     const renderFilters = (typeName: string) => {
         const tagsCollection = props.tagFilters[typeName];
         return (
-            <>
+            <div key={typeName}>
                 <Typography variant="subtitle2" className={classes.filterTitle}>
                     {typeName} : <Button variant="outlined" size="small" onClick={() => onClickFilter("all", typeName)}>{Object.values(tagsCollection).every(d => d) ? 'Unselect All' : 'Select All'}</Button>
                 </Typography>
@@ -113,7 +113,7 @@ export function SideBar(props: Props) {
                     ))}
                 </div>
                 <Divider />
-            </>
+            </div>
         );
     };
 
